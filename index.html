@@ -3,12 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+    <script src="Monarch_movement.js"></script>
     <title>Monarch Migrations</title>
     <style>
       body {
         margin: 0;
         background-color: #292826;
+        }
+
+        h1 {
+            font-family:"fugue-regular.otf", fugue, serif;
+            color: #e8e7e6;
+            font-size: 30px;
         }
 
         #time {
@@ -87,11 +94,9 @@
             document.getElementById("time").textContent = datetime;
             </script>
       </div>
-
     <div class="oval-container">
         <div id="grad1">
-          <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
-          <script src="Monarch_movement.js"></script>
+          <h1>click to migrate</h1>
         </div>
 
 
