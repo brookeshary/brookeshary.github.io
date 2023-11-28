@@ -3,365 +3,78 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
-    <script src="Monarch_movement.js"></script>
-    <link rel="stylesheet" href="https://use.typekit.net/myn0cgh.css">
 
-    <title>Monarch Migrations</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com"> 
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300&display=swap" rel="stylesheet">
+      <title>brooke shary</title>
     <style>
         body {
-          margin: 0;
-          background-color: #201D1D;
-          }
+            background-color:#e63d00;
+
+        }
+
+        @font-face {
+            font-family: TRJNDaVinci-Display;
+            src: url(TRJNDaVinci-Display.otf);
+            }
+        
+        :hover{
+            color:blue;
+            text-decoration: none;
+        }
+
+        :visited{
+          color: floralwhite;
+        }
+        
+        :active {
+          text-decoration: none;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin: 0;
+            color: floralwhite;
+            font-size: 6em; 
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+        
+        h2 {
+            display: flex;
+            align-content: flex-end;
+            margin-top: 0;
+            margin: 0;
+            color: floralwhite;
+            font-size: 1em; 
+            font-family: 'Bricolage Grotesque', sans-serif;
+        
+        }
 
         h3 {
-          font-family: "mrs-eaves-xl-serif", serif;
-          font-weight: 400;
-          font-style: italic;
-          font-size: 15px;
-          }
-
-        #p3 {
-          font-family: "mrs-eaves-xl-serif", serif;
-          font-weight: 400;
-          font-style: italic;
+            display: flex;
+            align-content: flex-end;
+            margin-top: 0;
+            margin: 0;
+            color: floralwhite;
+            font-size: 3em; 
+            font-family: TRJNDaVinci-Display;
+        
         }
-
-        #p4 {
-          margin-bottom: 10px;
-          font-family: "mrs-eaves-xl-serif", serif;
-          font-weight: 400;
-          font-style: italic;
-          font-size: 35px;
-        }
-
-
-
-        .container1 {
-          position: absolute;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 100vw;
-          height: 100vh;
-          background-color: #201D1D;
-          top: 0px;
-          left: 0px;
-          opacity: 1;
-          z-index: 9;
-
-        }
-        .paragraph0 {
-          position: absolute;
-          color: #F4EEE5;
-          font-family: "mrs-eaves-xl-serif-narrow", serif;
-          font-weight: 400;
-          font-style: italic;
-          font-kerning: normal;
-          font-size: 6vw;
-          transition: opacity 1s;
-        }
-
-        .paragraph1 {
-          position: absolute;
-          color: #F4EEE5;
-          width: 60vw;
-          font-family: "mr-eaves-xl-modern", sans-serif;
-          font-weight: 300;
-          font-style: normal;
-          font-size: 2vw;
-          opacity: 0;
-          transition: opacity 1s;
-        }
-        .paragraph2 {
-          position: absolute;
-          color: #F4EEE5;
-          width: 60vw;
-          font-family: "mr-eaves-xl-modern", sans-serif;
-          font-weight: 300;
-          font-style: normal;
-          font-size: 2vw;
-          opacity: 0;
-          transition: opacity 1s;
-        }
-
-        .paragraph3 {
-          position: absolute;
-          color: #F4EEE5;
-          width: 55vw;
-          font-family: "mr-eaves-xl-modern", sans-serif;
-          font-weight: 300;
-          font-style: normal;
-          font-size: 2vw;
-          opacity: 0;
-          transition: opacity 1s;
-        }
-
-        .paragraph4 {
-          position: absolute;
-          color: #F4EEE5;
-          width: 55vw;
-          font-family: "mr-eaves-xl-modern", sans-serif;
-          font-weight: 300;
-          font-style: normal;
-          font-size: 2vw;
-          opacity: 0;
-          transition: opacity 1s;
-        }
-
-        .paragraph5 {
-          position: absolute;
-          color: #F4EEE5;
-          width: 60vw;
-          text-align: center;
-          font-family: "mrs-eaves-xl-serif", serif;
-          font-weight: 400;
-          font-style: italic;
-          font-size: 2vw;
-          opacity: 0;
-          transition: opacity 1s;
-        }
-
-        .heading {
-          position: absolute;
-          display: flex;
-          justify-content: space-between;
-          width: 100vw;
-          margin-top: 10px;
-          padding: 0px;
-          }
-
-        .north {
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          width: 100vw;
-          z-index: +1;
-          text-align: center;
-            }
-
-        .seasonal-background {
-          display: flex;
-          justify-content: center;
-          width: 100vw;
-          height: 100vh;
-          z-index: -1;
-          border-radius: 50%;
-          }
-
-        .page-left {
-          width: 15vw;
-          margin-left: 20px;
-          font-family: "mr-eaves-xl-modern", sans-serif;
-          font-weight: 500;
-          font-style: normal;
-          color: #F4EEE5;
-          font-size: 22px;
-        }
-
-        .dateDisplay{
-          margin: 0px;
-
-          }
-
-        .page-right {
-          text-align: right;
-          margin-right: 20px;
-          font-family: "mr-eaves-xl-modern", sans-serif;
-          font-weight: 500;
-          font-style: normal;
-          color: #F4EEE5;
-          font-size: 22px;
-        }
-
-        .oval-container {
-          position: absolute;
-          height: 100vh;
-          width: 100vw;
-          z-index: -1;
-          }
-
-        .migration-status {
-          font-family: "mr-eaves-xl-modern", sans-serif;
-          font-weight: 400;
-          font-style: normal;
-          color: #F4EEE5;
-          font-size: 22px;
-          margin: 0px;
-            }
-
-        .footer {
-          position: absolute;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          text-align: center;
-          width: 100vw;
-          height: 98vh;
-          }
-  </style>
+      
+      </style>
   </head>
+  
   <body>
+   
+    <marquee><h1>hello world, it's brooke</h1></marquee>
+      <hr>
 
-    <div class="container1">
-      <p class="paragraph0">
-        The Great Monarch Migration
-  		</p>
-  		<p class="paragraph1">
-        The monarch butterfly <span id="p3">(Danaus Plexippus)</span> conducts the longest annual, regularly repeated migration among all insects. It inherits the genetic behavioral program that enables this wondrous migration.
-  		</p>
-  		<p class="paragraph2">
-        Year over year, their sophisticated orientation and positioning mechanisms allow the off-spring four to six generations later to arrive at the exact same tree where its ancestor arrived the previous year.
-        		</p>
-  		<p class="paragraph3">
-        During its annual cycle, the monarch resides between Mexico, the United States of America and Canada. There is no other case in the world in which butterflies travel <span id="p3">over 4,500 kilometers</span> to arrive at the same site each year.
-      </p>
-      <p class="paragraph4">
-        During the winter months, a population of between 200 millions and one billion monarchs concentrate in a small, alpine Oyamel Fir forest in central Mexico—
-  		</p>
-      <p class="paragraph5">
-        the Monarch Butterfly Biosphere.
-      </p>
-
-  	</div>
-
-<script>
-
-    let body = document.querySelector('body');
-    body.addEventListener('click', showParagraph1);
-    body.addEventListener('click', hideParagraph0);
-
-    function showParagraph1() {
-        let elmnt = document.querySelector('.paragraph1');
-        elmnt.style.opacity = 1;
-        body.removeEventListener('click', showParagraph1);
-        body.addEventListener('click', showParagraph2);
-    }
-    function hideParagraph0() {
-        let elmnt = document.querySelector('.paragraph0');
-        elmnt.style.opacity = 0;
-        body.removeEventListener('click', hideParagraph0);
-        body.addEventListener('click', hideParagraph1);
-    }
-    function showParagraph2() {
-        let elmnt = document.querySelector('.paragraph2');
-        elmnt.style.opacity = 1;
-        body.removeEventListener('click', showParagraph2);
-        body.addEventListener('click', showParagraph3);
-    }
-    function hideParagraph1() {
-        let elmnt = document.querySelector('.paragraph1');
-        elmnt.style.opacity = 0;
-        body.removeEventListener('click', hideParagraph1);
-        body.addEventListener('click', hideParagraph2);
-    }
-    function showParagraph3() {
-        let elmnt = document.querySelector('.paragraph3');
-        elmnt.style.opacity = 1;
-        body.removeEventListener('click', showParagraph3);
-        body.addEventListener('click', showParagraph4);
-    }
-    function hideParagraph2() {
-        let elmnt = document.querySelector('.paragraph2');
-        elmnt.style.opacity = 0;
-        body.removeEventListener('click', hideParagraph2);
-        body.addEventListener('click', hideParagraph3);
-    }
-    function showParagraph4() {
-        let elmnt = document.querySelector('.paragraph4');
-        elmnt.style.opacity = 1;
-        body.removeEventListener('click', showParagraph4);
-        body.addEventListener('click', showParagraph5);
-    }
-    function hideParagraph3() {
-        let elmnt = document.querySelector('.paragraph3');
-        elmnt.style.opacity = 0;
-        body.removeEventListener('click', hideParagraph3);
-        body.addEventListener('click', hideParagraph4);
-    }
-    function showParagraph5() {
-        let elmnt = document.querySelector('.paragraph5');
-        elmnt.style.opacity = 1;
-        body.removeEventListener('click', showParagraph5);
-        body.addEventListener('click', hideAll);
-    }
-    function hideParagraph4() {
-        let elmnt = document.querySelector('.paragraph4');
-        elmnt.style.opacity = 0;
-        body.removeEventListener('click', hideParagraph4);
-    }
-
-    function hideAll() {
-        let elmnt = document.querySelector('.container1');
-        elmnt.style.opacity = 0;
-        body.removeEventListener('click', hideAll);
-    }
-
-
-</script>
-
-<div class="heading">
-    <div class="page-left">
-      Central Mexico
-      <br>
-      <span id="formattedDate">
-      </span>
-    <script>
-      // Get the current date
-      const currentDate = new Date();
-
-      // Format the date as "Month Day, Year"
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      const formattedDate = currentDate.toLocaleDateString('en-US', options);
-
-      // Update the HTML element with the formatted date
-      document.getElementById("formattedDate").textContent = formattedDate;
-    </script>
-    <br>
-        <span id="time"></span>
-        <script>
-        // display date and time
-        function getCentralTime() {
-            const options = {
-                timeZone: 'America/Chicago',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric',
-                hour12: false,
-            };
-            return new Date().toLocaleString('en-US', options);
-        }
-        // Update the time element with the Central Time
-        function updateCentralTime() {
-            document.getElementById("time").textContent = getCentralTime();
-        }
-        // Display the Central Time immediately and update it every second
-        updateCentralTime();
-        setInterval(updateCentralTime, 1000);
-            </script>
-              </div>
-      <div class="north"> <h3>- north - <br> [canada] </h3>
-        </div>
-
-      <div class="page-right">
-          <div class="migration-status">Migrating South</div>
-          </div>
-        </div>
-
-
-    <div class="oval-container">
-      <div class="seasonal-background">
-        </div>
-      </div>
-
-<div class="footer"> <h3>- south -<br>[mexico]</h3>
-      </div>
-
-          <script src="script.js"></script>
-          <script src="migration-status.js"></script>
+      <h2>Project 2: <br></h2>
+      <h3><a href="Monarch/index.html"> Monarch Migration</a></h3>
+     <hr>
+     <br>
+     <h2>Project 3: <br></h2>
+     <h3><a href="World_Peace/index.html"> Is World Peace Possible?</a></h3>
   </body>
-
-
-
 </html>
