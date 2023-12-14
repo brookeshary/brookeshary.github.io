@@ -13,20 +13,28 @@
             background-color:#e52e00;
 
         }
-
-        @font-face {
-            font-family: HyperScrypt-Stencil_web;
-            src: url(HyperScrypt-Stencil_web.otf);
-            }
         
-        :hover{
-            color:white;
-            text-decoration: none;
-        }
 
-        :visited{
-          color: black;
-        }
+          /* unvisited link */
+          a:link {
+            color: black;
+          }
+
+          /* visited link */
+          a:visited {
+            color: black;
+          }
+
+          /* mouse over link */
+          a:hover {
+            color: white;
+          }
+
+          /* selected link */
+          a:active {
+            color: white;
+            text-decoration: none;
+          }
         
         :active {
           text-decoration: none;
