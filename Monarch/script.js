@@ -13,10 +13,10 @@ function updateSeasonalBackground() {
     seasonalBackground[0].style.background = 'radial-gradient(#32CD32, #DB5431)';
   } else if (month >= 8 && month <= 10) {
     // Autumn
-    seasonalBackground[0].style.background = 'radial-gradient(#DB5431, #FFA500)';
+    seasonalBackground[0].style.background = 'radial-gradient(#EC4724, #FFA500)';
   } else {
     // Winter
-    seasonalBackground[0].style.background = 'radial-gradient(#FF4500, #0082FB)';
+    seasonalBackground[0].style.background = 'radial-gradient(#EC4724, #0082FB)';
   }
 }
 
