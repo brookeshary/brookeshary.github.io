@@ -75,7 +75,7 @@ body {
 }
 
 .left-half {
-	width: 50vw;
+	width: 49vw;
 	height: 100vh;
 	overflow: scroll;
 	margin: 0;
@@ -90,7 +90,7 @@ body {
 	height: 100vh;
 	overflow: scroll;
 	margin: 0;
-	float: left;
+	float: right;
 	color: var(--intarblue);
 	scrollbar-gutter: auto | stable && both-edges?
 }
@@ -120,7 +120,7 @@ body {
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .left-half a {
-	color: white;
+	color: #FCFF73;
 	text-decoration: underline;
 }
 
@@ -129,7 +129,7 @@ body {
 }
 
 .left-half a:visited {
-	color: white;
+	color: #FCFF73;
 	text-decoration: underline;
 }
 
