@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+    <title>Draw</title>
+
+    <style>
+        body {
+            background-color: white;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider-container {
+            height: 10vh;
+            width: 98vw;
+            position: absolute;
+            display: flex;
+            margin-top: 10px;
+            margin-left: 10px;
+            justify-content: center;
+            flex-direction: row;
+            z-index: 2;
+        }
+
+        .slider {
+            width: 15vw;
+            margin-left: 5px;
+            font-size: 1.em;
+            font-family: "TRJNDaVinci-Display";
+            text-align: left;
+            color: white;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 5px;
+            border-radius: 10px;
+            outline: none;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        
+        .slider-title {
+          display: flex;
+          justify-content: space-between;
+        }
+
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: rgb(229, 255, 0);
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: rgb(229, 255, 0);
+            cursor: pointer;
+        }
+
+        canvas {
+            position: absolute;
+            mix-blend-mode: difference;
+
+        }
+
+        button {
+            width: 150px;
+            height: 35px;
+            padding-bottom: 5px;
+            padding-top: 3px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            border: 2px solid;
+            font-size: 1em;
+            font-family: "TRJNDaVinci-Display";
+            border-radius: 100px;
+            margin: 6px 6px;
+            cursor: crosshair;
+        } 
+
+        button:hover {
+            color: rgb(229, 255, 0);
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+
+        p {
+          margin: 5px;
+          padding-left: 10px;
+          padding-top: 3px;
+          padding-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider">
+          <div class="slider-title">
+            <button id="button-01" onclick="window.location.href='index.html'">home</button>
+            <p>grid size: <span id="gridSizeValue">45</span></p>
+          </div>
+          <input type="range" min="10" max="200" value="45" class="slider" id="gridSizeSlider"> 
+        </div>   
+      </div>
+      <!-- Your JavaScript files here -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="slider.js"></script>
+      <script src="Knit Pattern2.js"></script>
+
+    <script>
+        // Add event listener to the gridSizeSlider
+        document.addEventListener('DOMContentLoaded', function() {
+          let gridSizeSlider = document.getElementById("gridSizeSlider");
+          let gridSizeValue = document.getElementById("gridSizeValue");
+  
+          gridSizeSlider.addEventListener('input', function() {
+            gridSizeValue.textContent = this.value;
+            gridSize = parseInt(this.value); // Update gridSize variable in KnitPattern2.js
+          });
+        });
+      </script>
+
+</body>
+</html>

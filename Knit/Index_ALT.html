@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!--for browser compatibility: choose rendering engine to view the page in an correct view (for old ver. IE)  -->
+    <title></title><!--declaring the title, or name, of the HTML document. displayed in the browser's title bar-->
+    <meta name="description" content=""><!--keywords/snippet for search engines-->
+    <meta name="viewport" content="width=device-width"><!--the browser will (probably) render the width of the page at the width of its own screen -->
+    <title>Knit</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+
+
+<style>
+        @font-face {
+            font-family:"TRJNDaVinci-Display";
+            src: url(TRJNDaVinci-Display.otf) format('opentype');
+        }
+        
+        @font-face {
+            font-family:"NN Knit Grotesk Trial";
+            src: url(NNKnitGroteskTrial-Stripe1.otf) format('opentype');
+        }
+
+        
+
+        body {
+            margin: 0;
+            padding: 0;
+            z-index: 10;
+        }
+
+        .pop-text {
+            padding-top: 0px;
+            padding-bottom: 0px;    
+            padding-left: 30px;
+            padding-right: 20px;    
+            font-family: "TRJNDaVinci-Display";
+            font-size: 1.2em;
+        }
+
+        h1{
+            font-size: .5em;
+            font-family: "NN Knit Grotesk Trial";
+            font-style: "Stripe 1";
+            color: white;
+
+        }
+        h2 {
+            padding: 30px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            text-align: center;  
+            font-size: 3.2em;
+            font-family: "NN Knit Grotesk Trial";
+        }
+
+        .header{
+            height: 2vh;
+            margin-top: 10px;
+            margin-left: 10px;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            z-index: 3;
+        }
+
+        .button01 {
+            width: 35px;
+            height: 35px;
+            padding-bottom: 5px;
+            padding-top: 3px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            border: 2px solid;
+            font-size: 1em;
+            font-family: "TRJNDaVinci-Display";
+            border-radius: 100px;
+            margin: 5px 5px;
+            cursor: crosshair;
+        } 
+        
+        .close {   
+            width: 35px;
+            height: 35px;
+            position: fixed;
+            top: 0px !important;
+            right: 0px !important;
+            padding-bottom: 5px;
+            padding-top: 3px;
+            text-align: center;
+            font-size: 1em;
+            background-color: black;
+        }
+
+        button {
+            width: 150px;
+            height: 35px;
+            padding-bottom: 5px;
+            padding-top: 3px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            border: 2px solid;
+            font-size: 1em;
+            font-family: "TRJNDaVinci-Display";
+            border-radius: 100px;
+            margin: 5px 5px;
+            cursor: crosshair;
+        } 
+
+        button:hover {
+            color: rgb(229, 255, 0);
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+
+        .underline:hover {
+            text-decoration: underline;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: black;
+        border-radius: 10px;
+        }
+
+        .container1 {
+          position: absolute;
+          justify-content: center;
+          align-items: center;
+          justify-content: center;
+          background-color: rgb(255, 255, 255);
+          width: 100vw;
+          height: 100vh;
+          top: 0px;
+          z-index: 0;
+          opacity: 1;
+        }
+        
+        canvas {
+            position: absolute;
+            margin: auto;
+            mix-blend-mode: difference;
+            z-index: 0;
+        }
+        
+        .pop-out {
+            display: none;
+            position: absolute;
+            justify-content: center;
+            align-content: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40vw;
+            height: 50vh;
+            color: black;
+            background-color: rgb(229, 255, 0);
+            overflow: scroll;
+            border: 2px solid white;
+            padding: 20px;
+            z-index: 9999;
+        }
+
+        .paragraph2 {
+          position: absolute;
+          justify-content: center;
+          text-align: center;
+          color: black;
+          font-family: "NN Knit Grotesk Trial";
+          font-size: 6em;
+          line-height: 110%;
+          opacity: 1;
+          transition: opacity 1s;
+          user-select: none; 
+          margin: 30vw;
+        }
+
+        .paragraph3 {
+          position: absolute;
+          justify-content: center;
+          text-align: center;
+          color: black;
+          font-family: "TRJNDaVinci-Display";
+          font-size: 8em;
+          line-height: 90%;
+          opacity: 0;
+          transition: opacity 1s;
+          user-select: none; 
+        }
+
+        .paragraph4 {
+          position: absolute;
+          justify-content: center;
+          text-align: center;
+          color: black;
+          font-family: "TRJNDaVinci-Display";
+          font-size: 8em;
+          line-height: 90%;
+          opacity: 0;
+          transition: opacity 1s;
+          user-select: none; 
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="pop-out" id="popOutWindow">
+        <button class="close" onclick="togglePopOut()">X</button>
+        <h2>ABORT THE COURT</h2> 
+        <p class="pop-text">On June 24, 2022, the U.S. Supreme Court reversed nearly 50 years of precedent and, for the first time, eliminated a right grounded in personal liberty: the right to abortion. 'Dobbs v. Jackson Women’s Health Organization' reversed 'Roe v. Wade' and 'Planned Parenthood of Southeastern Pennsylvania v. Casey', the decisions that originally asserted the fundamental right to an abortion prior to the viability of the fetus. 
+            <br><br>
+            'Dobbs v. Jackson' states that the Constitution does not confer a right to abortion; and, the authority to regulate abortion is “returned to the people and their elected representatives.”
+            Mississippi [through Dobbs] argued that “liberty” as written in the Fourteenth Amendment only implicates fundamental rights that are “deeply rooted in U.S history and tradition.” Mississippi further argued that abortion is not a fundamental right here since many states at the time of the Fourteenth Amendment’s ratification had bans on abortions. 
+            <br><br>
+           The dissenting justices said that the court decision means that "young women today will come of age with fewer rights than their mothers and grandmothers." Indeed, they said the court's opinion means that "from the very moment of fertilization, a woman has no rights to speak of. A state can force her to bring a pregnancy to term even at the steepest personal and familial costs."
+
+
+        </p>
+        
+    </div>
+
+    <script>
+        function togglePopOut() {
+            var popOut = document.getElementById('popOutWindow');
+            var computedStyle = window.getComputedStyle(popOut);
+            if (computedStyle.display === 'none') {
+                popOut.style.display = 'block';
+            } else {
+                popOut.style.display = 'none';
+            }
+}
+
+    </script>
+
+    <div class=header>
+        <button class="button01" onclick="togglePopOut()">i</button>
+        <button type=button onclick="window.location.href='draw.html'">draw</button>
+    </div>
+    
+    <div class="container1">
+                <p class="paragraph2">
+                Isn't it frustrating how for women, no matter how much progress we make towards equality and autonomy over our bodies... [click]
+                    </p>
+                <p class="paragraph3">
+                We seem to always get a little push back....
+                </p>
+            <p class="paragraph4">
+                ...Stepped on, glazed over, more more...
+            </p>
+      
+            </div>
+      
+
+
+        <div class="canvas">
+            <script>
+      
+                let body = document.querySelector('body');
+                body.addEventListener('click', showParagraph3);
+                body.addEventListener('click', hideParagraph2);
+            
+                function showParagraph3() {
+                    let elmnt = document.querySelector('.paragraph3');
+                    elmnt.style.opacity = 1;
+                    body.removeEventListener('click', showParagraph3);
+                    body.addEventListener('click', showParagraph4);
+                }
+                function hideParagraph2() {
+                    let elmnt = document.querySelector('.paragraph2');
+                    elmnt.style.opacity = 0;
+                    body.removeEventListener('click', hideParagraph2);
+                    body.addEventListener('click', hideParagraph3);
+                }
+                function showParagraph4() {
+                    let elmnt = document.querySelector('.paragraph4');
+                    elmnt.style.opacity = 1;
+                    body.removeEventListener('click', showParagraph4);
+                }
+                function hideParagraph3() {
+                    let elmnt = document.querySelector('.paragraph3');
+                    elmnt.style.opacity = 0;
+                    body.removeEventListener('click', hideParagraph3);
+                    body.addEventListener('click', hideParagraph4);
+                }
+                function hideParagraph4() {
+                    let elmnt = document.querySelector('.paragraph4');
+                    elmnt.style.opacity = 0;
+                    body.removeEventListener('click', hideParagraph4);
+                }
+            </script>
+            <script src="Erase-grid.js"></script>
+        </div>
+        </div>
+
+
+    
+
+
+
+</body>
+</html>

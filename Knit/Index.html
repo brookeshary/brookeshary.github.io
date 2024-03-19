@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!--for browser compatibility: choose rendering engine to view the page in an correct view (for old ver. IE)  -->
+    <title></title><!--declaring the title, or name, of the HTML document. displayed in the browser's title bar-->
+    <meta name="description" content=""><!--keywords/snippet for search engines-->
+    <meta name="viewport" content="width=device-width"><!--the browser will (probably) render the width of the page at the width of its own screen -->
+    <title>Knit</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+
+
+<style>
+        @font-face {
+            font-family:"TRJNDaVinci-Display";
+            src: url(TRJNDaVinci-Display.otf) format('opentype');
+        }
+        
+        @font-face {
+            font-family:"NN Knit Grotesk Trial";
+            src: url(NNKnitGroteskTrial-Stripe1.otf) format('opentype');
+        }
+        
+        @font-face {
+            font-family:"Dusseldot";
+            src: url(Dusseldot-Variable.ttf) format('truetype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            z-index: 10;
+        }
+
+        .pop-text {
+            padding-top: 0px;
+            padding-bottom: 0px;    
+            padding-left: 30px;
+            padding-right: 20px;    
+            font-family: "TRJNDaVinci-Display";
+            font-size: 1.2em;
+        }
+
+        h1{
+            font-size: .5em;
+            font-family: "Dusseldot";
+            font-style: "Stripe 1";
+            color: white;
+
+        }
+        h2 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 30px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            text-align: center;  
+            font-size: 3.2em;
+            color: rgb(229, 255, 0);
+            font-family: "Dusseldot";
+            animation: changeFontWidth 5s infinite alternate; 
+            transition:transform 1s ease-in-out 2s;
+        }
+
+
+        .header{
+            height: 2vh;
+            margin-top: 10px;
+            margin-left: 10px;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            z-index: 3;
+        }
+
+        .button01 {
+            width: 35px;
+            height: 35px;
+            padding-bottom: 5px;
+            padding-top: 3px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            border: 2px solid;
+            font-size: 1em;
+            font-family: "TRJNDaVinci-Display";
+            border-radius: 100px;
+            margin: 5px 5px;
+            cursor: crosshair;
+        } 
+        
+        .close {   
+            width: 35px;
+            height: 35px;
+            position: fixed;
+            top: 0px !important;
+            right: 0px !important;
+            padding-bottom: 5px;
+            padding-top: 3px;
+            text-align: center;
+            font-size: 1em;
+            background-color: black;
+        }
+
+        button {
+            width: 150px;
+            height: 35px;
+            padding-bottom: 5px;
+            padding-top: 3px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            border: 2px solid;
+            font-size: 1em;
+            font-family: "TRJNDaVinci-Display";
+            border-radius: 100px;
+            margin: 5px 5px;
+            cursor: crosshair;
+        } 
+
+        button:hover {
+            color: rgb(229, 255, 0);
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+
+        .underline:hover {
+            text-decoration: underline;
+        }
+
+        #x-underline{
+            text-decoration: underline; 
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: rgb(229, 255, 0);
+        border-radius: 10px;
+        }
+
+        .container1 {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(255, 255, 255);
+          width: 100vw;
+          height: 100vh;
+          top: 0px;
+          z-index: 0;
+          opacity: 1;
+        }
+        
+        canvas {
+            position: absolute;
+            margin: auto;
+            mix-blend-mode: difference;
+            z-index: 0;
+        }
+        
+        .pop-out {
+            display: none;
+            position: absolute;
+            justify-content: center;
+            align-content: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            height: 60vh;
+            color: White;
+            background-color: Black;
+            overflow: scroll;
+            border: 2px solid rgb(229, 255, 0);
+            padding: 20px;
+            z-index: 9999;
+        }
+
+        .paragraph2 {
+          position: absolute;
+          text-align: center;
+          color: black;
+          font-family: "Dusseldot";
+          font-size: 4em;
+          line-height: 110%;
+          opacity: 1;
+          transition: opacity 1s;
+          user-select: none; 
+          margin: 30px;
+          animation: changeFontWidth 60s; 
+          transition:transform 1s ease-in-out 3s;
+        }
+
+
+        @keyframes changeFontWidth {
+          from {
+            font-variation-settings: "wght" 250, "wdth" 150;
+          }
+          to {
+            font-variation-settings: "wght" 250, "wdth" 215;
+          }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="pop-out" id="popOutWindow">
+        <button class="close" onclick="togglePopOut()">X</button>
+        <h2>ABORT THE COURT</h2> 
+        <p class="pop-text">On June 24, 2022, the U.S. Supreme Court reversed nearly 50 years of precedent and, for the first time, eliminated a right grounded in personal liberty: the right to abortion. 'Dobbs v. Jackson Women’s Health Organization' reversed 'Roe v. Wade' and 'Planned Parenthood of Southeastern Pennsylvania v. Casey', the decisions that originally asserted the fundamental right to an abortion prior to the viability of the fetus. 
+            <br><br>
+            'Dobbs v. Jackson' states that the Constitution does not confer a right to abortion; and, the authority to regulate abortion is “returned to the people and their elected representatives.”
+            <span id="x-underline">Mississippi [through Dobbs] argued that “liberty” as written in the Fourteenth Amendment [shown on this website] only implicates fundamental rights that are “deeply rooted in U.S history and tradition.” Mississippi further argued that abortion is not a fundamental right here since many states at the time of the Fourteenth Amendment’s ratification had bans on abortions. </span>
+            <br><br>
+            In contrast, Jackson’s Women’s Health Organization (“Women’s Health”) argued that abortion is grounded in the Fourteenth Amendment. It asserted that physical autonomy and body integrity are “essential elements of liberty protected by the Due Process Clause.” For example, contraception is included in the word “liberty.” Women’s Health also argued that abortion, or the right of a person to have possession of their own body is important in the common law tradition. 
+            <br><br>
+            The dissenting justices said that the court decision means that "young women today will come of age with fewer rights than their mothers and grandmothers." Indeed, they said the court's opinion means that "from the very moment of fertilization, a woman has no rights to speak of. A state can force her to bring a pregnancy to term even at the steepest personal and familial costs."
+            <br><br>
+            "In addition to cherry-picking historical sources, the majority’s myopic
+            and ossified constitutional vision forecloses any possibility of extending
+            rights to those to whom they were previously denied. First, it fails to
+            acknowledge that the ratifiers of the Fourteenth Amendment were white,
+            male landowners, who did not view women or people of color as full and
+            equal citizens, and did not permit them a voice in the political process." (Center for Reproductive Rights)
+    
+        </p>
+        
+    </div>
+
+    <div class=header>
+        <button class="button01" onclick="togglePopOut()">i</button>
+        <button type=button onclick="window.location.href='draw.html'">draw</button>
+    </div>
+
+    <script>
+        function togglePopOut() {
+            var popOut = document.getElementById('popOutWindow');
+            var computedStyle = window.getComputedStyle(popOut);
+            if (computedStyle.display === 'none') {
+                popOut.style.display = 'block';
+            } else {
+                popOut.style.display = 'none';
+            }
+}
+
+    </script>
+
+    <div class="container1">
+                <p class="paragraph2">
+                    No State shall make or enforce any law <br>which shall abridge the privileges or <br>immunities of citizens of the United States; <br> nor shall any State deprive any <br> person of life, liberty, or property, <br> without due process of law; nor deny <br>to any person within its jurisdiction  <br>the equal protection of the laws.                    </p>
+            </div>
+      
+        <div class="canvas">
+            <script src="Erase-grid.js"></script>
+        </div>
+        </div>
+
+
+    
+
+
+
+</body>
+</html>
