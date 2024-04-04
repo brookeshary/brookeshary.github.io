@@ -1,7 +1,6 @@
 // thank you Geongeorge for the base of this code!
-
 var rows = 40;
-var cols = 50;
+var cols = 60;
 var block = [0, 0]; // 0->width 1->height
 
 // Define an array of symbols
@@ -14,8 +13,11 @@ var play = false;
 var pix = makeArray(cols, rows);
 var pixT = makeArray(cols, rows); // temp array
 
+var lastX = -1;
+var lastY = -1;
+
 function setup() {
-    var cnv = createCanvas(1500, 1200);
+    var cnv = createCanvas(1500, 1000);
     var x = (windowWidth - width) / 2;
     var y = (windowHeight - height) / 2;
     cnv.position(x, y);
@@ -113,7 +115,7 @@ function drawPixel(x, y, a) {
   }
 
   // font size based on the block size
-  let fontSize = min(block[0], block[1]) * 0.8;
+  let fontSize = min(block[0], block[1]) * .9;
   textSize(fontSize);
 
   // Draw text with fill color
@@ -181,8 +183,19 @@ function keyPressed() {
 function mousePressed() {
   if (mouseIsPressed) {
     let pos = getPixelAddr(mouseX, mouseY);
-    console.log(pos);
-    togglePixel(pos[0], pos[1]);
+    lastX = pos[0];
+    lastY = pos[1];
+    togglePixel(lastX, lastY);
   }
 }
 
+function mouseDragged() {
+  if (mouseIsPressed) {
+    let pos = getPixelAddr(mouseX, mouseY);
+    if (pos[0] != lastX || pos[1] != lastY) {
+      lastX = pos[0];
+      lastY = pos[1];
+      togglePixel(lastX, lastY);
+    }
+  }
+}
