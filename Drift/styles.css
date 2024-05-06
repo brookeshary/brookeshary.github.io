@@ -1,0 +1,116 @@
+/**
+ * @license
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'ABCMaxiRoundVariable-Trial';
+  src: url(ABCMaxiRoundVariable-Trial.ttf);
+  font-weight: 250;
+}
+
+#map {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+}
+
+.header {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 8vh;
+  z-index: 1;
+  margin-top: 0;
+  margin-left: 0;
+  padding: 0;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  height: 12vh;
+  margin-top: 40px;
+  margin-left: 10px;
+  border: none ;
+}
+
+#driftlogo {
+  padding: 6px;
+  max-width: 90%;
+  max-height: auto;
+}
+
+.custom-marker-label {
+  color: white;
+  font-family: 'ABCMaxiRoundVariable-Trial';
+  font-size: .5em;
+}
+
+.pop-out {
+    display: none;
+    position: absolute;
+    justify-content: center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-family: 'ABCMaxiRoundVariable-Trial';
+    font-size: 2.5em;
+    width: 90vw;
+    height: 90vh;
+    color: black;
+    background-color: rgba(225, 250, 241, .8);
+    overflow: auto;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    z-index: 9999;
+
+}
+
+.button01 {
+  width: 100px;
+  height: 50px;
+  padding-bottom: 5px;
+  padding-top: 3px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  font-size: 2em;
+  font-family: 'ABCMaxiRoundVariable-Trial';
+  font-weight: 300;
+  margin: 5px 5px;
+  cursor: crosshair;
+}
+
+
+.pop-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    font-size: 2em;
+    font-family: 'ABCMaxiRoundVariable-Trial';
+    font-weight: 300;
+    padding: 0;
+    margin:0; 
+}
