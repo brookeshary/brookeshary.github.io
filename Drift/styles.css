@@ -70,11 +70,11 @@ body {
     justify-content: center;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -2%);
+    transform: translate(-50%, 10%);
     font-family: 'ABCMaxiRoundVariable-Trial';
-    font-size: 2.7em;
-    width: 95vw;
-    height: 92vh;
+    font-size: 1.8em;
+    width: 65vw;
+    height: 60vh;
     color: black;
     background-color: rgba(225, 250, 241, .95);
     overflow: auto;
