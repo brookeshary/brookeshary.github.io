@@ -18,6 +18,11 @@ body {
   font-weight: 250;
 }
 
+@font-face {
+  font-family: 'Favorit-Regular';
+  src: url(Favorit-Regular.otf);
+}
+
 #map {
   position: absolute;
   width: 100vw;
@@ -71,7 +76,7 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, 10%);
-    font-family: 'ABCMaxiRoundVariable-Trial';
+    font-family: 'Favorit-Regular';
     font-size: 1.8em;
     width: 65vw;
     height: 60vh;
