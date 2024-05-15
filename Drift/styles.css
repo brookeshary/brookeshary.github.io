@@ -19,8 +19,8 @@ body {
 }
 
 @font-face {
-  font-family: 'Favorit-Regular';
-  src: url(Favorit-Regular.otf);
+  font-family: 'Favorit-Light';
+  src: url(Favorit-Light.otf);
 }
 
 #map {
@@ -76,7 +76,7 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, 10%);
-    font-family: 'Favorit-Regular';
+    font-family: 'Favorit-Light';
     font-size: 1.8em;
     width: 65vw;
     height: 60vh;
