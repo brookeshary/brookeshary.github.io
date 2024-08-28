@@ -9,17 +9,18 @@ function initMap() {
     styles: styles.silver
   });
 
-  const checkpoints = [
-      { label: "01", name: "start from a place of memory", lat: 41.8131, lng: -71.4346 },
-      { label: "02", name: "flow through space with intuition", lat: 41.8205, lng: -71.4263 },
-      { label: "*", name: "limit speed", lat: 41.8186, lng: -71.4241 },
-      { label: "03", name: "xxxx", lat: 41.8237, lng: -71.4294 },
-      { label: "04", name: "xxxx", lat: 41.8203, lng: -71.4316 },
-      { label: "05", name: "xxxx", lat: 41.8194, lng: -71.4406 },
-      { label: "06", name: "xxxx", lat: 41.8212, lng: -71.4506 },
-      { label: "07", name: "xxxx", lat: 41.8166, lng: -71.4283 },
-      { label: "08", name: "xxxx", lat: 41.8095, lng: -71.4262 },
-  ];
+  //const checkpoints = [
+      //{ label: "01", name: "start from a place of memory", lat: 41.8131, lng: -71.4346 },
+      //{ label: "02", name: "flow through space with intuition", lat: 41.8205, lng: -71.4263 },
+      //{ label: "*", name: "limit speed", lat: 41.8186, lng: -71.4241 },
+      //{ label: "03", name: "xxxx", lat: 41.8237, lng: -71.4294 },
+      //{ label: "04", name: "xxxx", lat: 41.8203, lng: -71.4316 },
+      //{ label: "05", name: "xxxx", lat: 41.8194, lng: -71.4406 },
+      //{ label: "06", name: "xxxx", lat: 41.8212, lng: -71.4506 },
+      //{ label: "07", name: "xxxx", lat: 41.8166, lng: -71.4283 },
+      //{ label: "08", name: "xxxx", lat: 41.8095, lng: -71.4262 },
+  //];
+  
 
   const infowindow = new google.maps.InfoWindow();
 
