@@ -73,7 +73,7 @@ body {
     display: none;
     position: absolute;
     justify-content: center;
-    top: 85%;
+    top: 100%;
     left: 50%;
     transform: translate(-50%, 10%);
     font-family: 'Favorit-Light';
@@ -116,8 +116,8 @@ body {
 }
 
 .button01 {
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   padding-bottom: 5px;
   padding-top: 3px;
   text-align: center;
@@ -125,7 +125,7 @@ body {
   color: white;
   border: 1px solid black;
   border-radius: 10px;
-  font-size: 2.2em;
+  font-size: 1.8em;
   font-family: 'ABCMaxiRoundVariable-Trial';
   font-weight: 300;
   margin: 10px 10px;
