@@ -3,23 +3,28 @@ let comments = [];
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 41.8145, lng: -71.4317 },
-    zoom: 15,
+    center: { lat: 41.8182, lng: -71.4201 },
+    zoom: 14.5,
     mapTypeControl: false,
     styles: styles.silver
   });
 
-  //const checkpoints = [
-      //{ label: "01", name: "start from a place of memory", lat: 41.8131, lng: -71.4346 },
-      //{ label: "02", name: "flow through space with intuition", lat: 41.8205, lng: -71.4263 },
-      //{ label: "*", name: "limit speed", lat: 41.8186, lng: -71.4241 },
-      //{ label: "03", name: "xxxx", lat: 41.8237, lng: -71.4294 },
-      //{ label: "04", name: "xxxx", lat: 41.8203, lng: -71.4316 },
-      //{ label: "05", name: "xxxx", lat: 41.8194, lng: -71.4406 },
-      //{ label: "06", name: "xxxx", lat: 41.8212, lng: -71.4506 },
-      //{ label: "07", name: "xxxx", lat: 41.8166, lng: -71.4283 },
-      //{ label: "08", name: "xxxx", lat: 41.8095, lng: -71.4262 },
-  //];
+  const checkpoints = [
+      { label: "01", name: "start from a place of memory", lat: 41.8131, lng: -71.4346 },
+      { label: "02", name: "flow through space with intuition", lat: 41.8205, lng: -71.4263 },
+      { label: "03", name: "what could be overlooked?", lat: 41.8141, lng: -71.4230 },
+      { label: "04", name: "move slowly", lat: 41.8253, lng: -71.4432 },
+      { label: "05", name: "what might you encounter?", lat: 41.8195, lng: -71.4406 },
+      { label: "06", name: "where is the edge?", lat: 41.8260, lng: -71.4609 },
+      { label: "07", name: "limit speed", lat: 41.8186, lng: -71.4241 },
+      { label: "10", name: "move slow", lat: 41.8236, lng: -71.4297 },
+      { label: "12", name: "no one way", lat: 41.8203, lng: -71.3937 },
+      { label: "08", name: "limit speed", lat: 41.8187, lng: -71.4265 },
+      { label: "11", name: "arrows", lat: 41.8393, lng: -71.3988 },
+      { label: "13", name: "limit speed", lat: 41.8378, lng: -71.3809 },
+      { label: "09", name: "arrows", lat: 41.8162, lng: -71.4244 },
+      { label: "*", name: "arrows", lat: 41.8154, lng: -71.4321 },
+  ];
   
 
   const infowindow = new google.maps.InfoWindow();
@@ -36,7 +41,7 @@ function initMap() {
       icon: {
         path: google.maps.SymbolPath.CIRCLE, // Define the shape of the marker
         color: 'white',
-        fillColor: '#0af7a2', // Fill color of the marker
+        fillColor: '#0af7a2', // Fill color of the marker, 0af7a2
         fillOpacity: 1, // Opacity of the marker
         scale: 15, // Size of the marker
         strokeColor: 'black',
