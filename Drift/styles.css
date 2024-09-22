@@ -90,20 +90,29 @@ body {
 
 }
 
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+    }
+
 .close {   
-  width: 25px;
-  height: 25px;
-  display: flex;
+  width: 35px;
+  height: 35px;
   position: fixed;
-  margin-top: 0px;
-  margin-right: 10px;
-  text-align: center;
+  top: 5px !important;
+  right: 10px !important;
   color: black;
   background-color: transparent;
   border: none;
   border-radius: 7.5px;
   font-family: 'ABCMaxiRoundVariable-Trial';
-  font-size: 1.2em;
+  font-size: 1.6vmax;
 }
 
 .button01 {
